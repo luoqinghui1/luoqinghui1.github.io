@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的简历</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{background-color: #f6f6f8;color: #333;font-size: 16px;-webkit-font-smoothing: antialiased;}
+        
+        .warp{position: relative;margin: 0 auto;max-width: 720px;display: none;}
+        .content{position: relative;background-color: #ffffff;border-radius: 16px;}
+        .content-header{position: sticky;position: -webkit-sticky;top: 0;height: 44px; display: flex ; align-items: center; justify-content: space-between; padding: 0 40px; background: linear-gradient(90deg, #f5fcfc, #fcfbfa); border-radius: 16px 16px 0 0;z-index: 99;}
+        .content-header h2{font-size: 14px; color: #999; font-weight: 400;}
+        .content-header a{font-size: 14px; color: #999; font-weight: 400;}
+        .content-detail{padding: 40px 40px 20px;}
+        .content-base{display: flex;padding:0 0 20px;}
+        .content-base-info{flex: 1;}
+        .content-base-info p{color: #222; height: 33px; line-height: 33px; font-size: 24px; font-weight: 500;}
+        .content-base-info ul{list-style: none;margin-top: 15px;display: flex;align-items: center;flex-wrap: wrap;}
+        .content-base-info ul li{margin-right: 30px;}
+        .content-base-info ul li span{color: #666;}
+        .content-base-headimg{flex-shrink: 0;border-radius: 50%;width: 66px;height: 66px;}
+
+        .item{position: relative;padding: 15px 0;}
+        .item-title{position: relative; padding-left: 14px; font-size: 20px; height: 27px; line-height: 27px; font-weight: 500; margin-bottom: 12px;}
+        .item-title:before {content: ""; position: absolute; width: 4px; height: 17px; background: #00bebd; border-radius: 3px; left: 0; top: 5px; }
+        .item-content{position: relative;padding: 8px 0;}
+
+        .advantage{list-style: inside;}
+        .advantage li+li{margin-top: 10px;}
+        
+        .job{display: flex;align-items: center;}
+        .job label{display: inline-block;}
+        .job-money{position: relative;margin: 0 20px;padding: 0 20px;font-size: 14px;}
+        .job-money::before{content: ""; position: absolute; top: 50%; left: 0; margin-top: -6px; width: 1px; height: 12px; background-color: #ccc;}
+        .job-money::after{content: ""; position: absolute; top: 50%; right: 0; margin-top: -6px; width: 1px; height: 12px; background-color: #ccc;}
+        .job-address{font-size: 14px;color: #999;}
+        
+        .edu{display: flex;align-items: center;flex-wrap: wrap;}
+        .edu-logo{width: 84px;height: 84px;}
+        .edu-info{flex: 1;padding-left: 20px;}
+        .edu-info-name{display: inline-block; font-size: 16px; font-weight: 600; line-height: 22px; max-width: 354px; word-break: break-all;}
+        .edu-info ul{list-style: none;display: flex;align-items: center;flex-wrap: wrap;margin-top: 10px;}
+        .edu-info ul li{font-size: 14px;margin-right: 15px;}
+        
+        .company+.company{margin-top: 20px;}
+        .company-name{display: flex;align-items: center;justify-content: space-between;}
+        .company-name span{font-size: 16px; font-weight: 500; color: #222; line-height: 22px; display: inline-block; word-break: break-all;}
+        .company-name label{display: inline-block; padding: 2px 8px; font-size: 14px; color: #444; line-height: 20px; background: rgba(0, 0, 0, .04); border-radius: 4px;}
+        .company-name em{font-style: normal; flex-shrink: 0;font-size: 14px; color: #999;}
+        .company-work{margin-top: 8px;font-size: 15px;}
+        .company-work a{font-size: 14px;}
+        .company-work span{color: #999;font-size: 14px;}
+
+        .project+.project{margin-top: 20px;}
+        .project p{font-size: 16px;}
+        .project>p{margin-top: 0;}
+        .project ul{margin-top: 10px; padding-left: 30px;}
+        .project li{display: list-item;margin-top: 10px;text-align: -webkit-match-parent;unicode-bidi: isolate;}
+        .project li::marker{color: rgb(139, 139, 139);}
+        .project li p{margin: 0;}
+
+        .content-footer{height: 44px; display: flex ; align-items: center;justify-content: center; padding: 0 40px; background: linear-gradient(90deg, #f5fcfc, #fcfbfa); z-index: 99;}
+        .content-footer h2{font-size: 15px; color: #ac47e0; font-weight: 400;text-align: center;}
+
+        .pointer{position: fixed;width: 32px;height: 32px;z-index: 9999;left: 0;top: 0;margin-left: -16px;margin-top: 7px;}
+        html{cursor: none;}
+
+        .cursor{animation: san 0.3s infinite;}
+        @keyframes san {
+            0%,100% {opacity: 1;}
+            50% {opacity: 0;}
+        }
+
+        ::selection{color: #ac47e0;background-color: #f1f1f1;}
+
+        @media screen and (max-width: 768px) {
+            .content-detail{padding: 20px 15px;}
+            .pointer{display: none;}
+            html{cursor: auto;}
+        }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <div class="content">
+            <div class="content-header">
+                <h2>我的简历</h2>
+                <a href="mailto:qinghui.luo@qq.com">点击联系</a>
+            </div>
+            <div class="content-detail">
+                <div class="content-base">
+                    <div class="content-base-info">
+                        <p>罗青辉</p>
+                        <ul>
+                            <li><span>电话：</span>18689205939</li>
+                            <li><span>邮箱：</span>qinghui.luo@qq.com</li>
+                            <li><span>学历：</span>本科</li>
+                        </ul>
+                    </div>
+                    <img class="content-base-headimg" src="https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEL2uw6yLrqThcWHnlHVWBs9XtqcbHBmJAU7n8OXWSa7u0ibGF8ItOf29QLmZvuYIjJmqtic8iaDCiazyw/132" alt="">
+                </div>
+                <div class="item">
+                    <div class="item-title">个人优势</div>
+                    <div class="item-content">
+                        <ul class="advantage">
+                            <li>扎实的css，js功底</li>
+                            <li>多年vue全家桶实战经验，react项目也有涉猎</li>
+                            <li>项目常用组件和工具封装（上传组件，弹窗组件，消息提示组件，ajax封装，拖拽等）</li>
+                            <li>快速响应式开发各类型站点（官网、产品页、电商等）</li>
+                            <li>快速搭建各类型管理后台（包括但不限于使用UI组件框架：如elementUI/Vuetify）</li>
+                            <li>uniapp多端开发经验（如选图小程序已上线：图优多）</li>
+                            <li>微信小程序原生开发经验</li>
+                            <li>微信公众号开发，企业微信相关开发经验</li>
+                            <li>技术分享，爱思考，需求分析与解决</li>
+                            <li>设计出身，产品美感兼俱；团队分工协作积极，同事相处融洽</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">项目经历(部分)</div>
+                    <div class="item-content">
+                        <div class="project">
+                            <p>项目点：<strong>图片平台前端优化</strong></p>
+                            <ul>
+                                <li><strong>难点</strong>：图片页面加载速度超级慢，首次加载时间超过6秒，巨难受。</li>
+                                <li><strong>解决方案</strong>：通过使用交叉观察器IntersectionObserver做分页和懒加载优化；并把图片压缩，格式转换、图片占位，组件按需加载等将首屏加载时间缩短至2秒内。</li>
+                                <li><strong>成果</strong>：页面加载速度提升80%</li>
+                            </ul>
+                        </div>
+                        <div class="project">
+                            <p>项目点：<strong>混合开发APP滚动优化</strong></p>
+                            <ul>
+                                <li><strong>难点</strong>：页面含有大量图片，内容很多，滚动几页的数据就很卡顿，尤其是在低端安卓机上较为明显。</li>
+                                <li><strong>解决方案</strong>：使用vue+iScroll.js+IntersectionObserverAPI实现了一个无限滚动优化，只渲染可视范围的内容</li>
+                                <li><strong>成果</strong>：页面流畅，体验感增强</li>
+                            </ul>
+                        </div>
+                        <div class="project">
+                            <p>项目点：<strong>完成一个复杂需求：提供一个按钮，点击后给用户生成属于他自己的pdf报告(报告中还有多个图标数据)；并通过邮件附件的形式，且邮件的内容的部分数据是要接口提供的，发送该邮件给客户；且要知道用户是否打开查看了该邮件；</strong></p>
+                            <ul>
+                                <li><strong>难点</strong>：后端只提供数据，且分多个接口提供，pdf要在前端生成；邮件里的内容也由前端提供，邮件要适配outlook；流程长细节多；</li>
+                                <li><strong>解决方案</strong>：1. 在界面之外使用echarts渲染图标数据； 2. 使用html2canvas+pdf.js生成pdf报告；3. 使用table写好邮件的HTML模版，替换数据；4. 在发送邮件的html中加个图片，使用图片加载的方式告知系统已读</li>
+                                <li><strong>成果</strong>：复杂需求要分解，逐个击破再组合</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">工作经历</div>
+                    <div class="item-content">
+                        <div class="company">
+                            <div class="company-name">
+                                <span>深圳彼岸移民咨询服务有限公司（彼岸国际深圳分公司）</span>
+                                <em>2019.12-至今</em>
+                            </div>
+                            <div class="company-work"> <span>职位：</span>前端研发小组长 </div>
+                            <div class="company-work"> <span>内容：</span>服务于全球各个分公司，完成来自各个分公司的需求；彼岸国际各个官网的开发，如彼岸国际中国官网<a href="https://beyond-wm.cn/" target="_blank">查看</a>；彼岸国际内部多个业务系统的开发迭代；彼岸客户服务平台的开发迭代；活动邀请小程序开发；相关公众号网页等；</div>
+                        </div>
+                        <div class="company">
+                            <div class="company-name">
+                                <span>宜信好望角（宜信子公司）</span>
+                                <em>2019.03-2019.11</em>
+                            </div>
+                            <div class="company-work"> <span>职位：</span>前端研发工程师</div>
+                            <div class="company-work"> <span>内容：</span>客户投资服务端APP开发及更新迭代(基于Dclound下的H5+Runtime开发)；相关的公众号开发；宣传活动页；小程序开发等；</div>
+                        </div>
+                        <div class="company">
+                            <div class="company-name">
+                                <span>离岸科技（深圳）有限责任公司</span>
+                                <em>2017-2019.02</em>
+                            </div>
+                            <div class="company-work"> <span>职位：</span>web前端开发工程师 </div>
+                            <div class="company-work"> <span>内容：</span>nemocup智能水杯App开发(原生混合开发)；各类官网；小商城；微信公众号；管理后台；</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">期望职位</div>
+                    <div class="item-content">
+                        <div class="job"><label>前端研发</label><label class="job-money">22k</label><label class="job-address">深圳</label></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">教育经历</div>
+                    <div class="item-content">
+                        <div class="edu">
+                            <img class="edu-logo" src="https://img.bosszhipin.com/beijin/icon/0c0e0ee2ce9da330c8e350dd9e5f7c69b1792042df7d374e83c5b195df57be51.png" alt="">
+                            <div class="edu-info">
+                                <div class="edu-info-name">南昌航空大学</div>
+                                <ul>
+                                    <li>本科</li>
+                                    <li>设计</li>
+                                    <li>c语言国家计算机二级(教育考试网可查)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-footer">
+                <h2>感谢查看！</h2>
+            </div>
+        </div>
+    </div>
+    <div class="pointer"> <svg t="1739437769838" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10736" id="mx_n_1739437769839" width="32" height="32"><path d="M599.06048 831.309824l12.106752-193.404928 372.860928 184.430592L984.02816 710.206464 617.906176 367.33952 617.906176 151.638016c0-56.974336-46.188544-143.064064-103.158784-143.064064-56.974336 0-103.158784 86.089728-103.158784 143.064064L411.588608 367.33952 45.461504 710.206464l0 112.129024 366.660608-184.430592 14.999552 209.27488c0 5.05344 0.594944 9.892864 1.124352 14.749696l-66.591744 60.348416 0 66.587648 153.986048-50.879488 2.43712-0.80896 147.439616 51.688448 0-66.587648-68.758528-62.253056L599.06048 831.309824z" fill="#FF9000" p-id="10737"></path></svg> </div>
+    <script>
+        const _0x5b2a=['TEXT_NODE','.warp','attrs','createTextNode','length','remove','%c\x20果然，爱看源码的人都超帅，很高兴认识你，希望一起技术分享交流\x20🤝\x20','before','cloneNode','selfId','value','setAttribute','[nihao=\x22','tag','attributes','parentId','children','transform','.content','random','innerText','span','toString','translate(','log','scrollHeight','font-size:\x2020px\x20;\x20font-style:\x20italic\x20;padding:5px\x203px;','createElement','appendChild','mousewheel','replace','textContent','querySelector','nodeType','className'];const _0x6fe4=function(_0x5b2a34,_0x6fe4e4){_0x5b2a34=_0x5b2a34-0x0;let _0x411678=_0x5b2a[_0x5b2a34];return _0x411678;};const warp=document['querySelector'](_0x6fe4('0x1'));const contentElem=document[_0x6fe4('0x20')](_0x6fe4('0x12'));let isAutoScroll=!![];const cursor=document[_0x6fe4('0x1b')](_0x6fe4('0x15'));cursor[_0x6fe4('0x14')]='●';cursor[_0x6fe4('0x22')]='cursor';function uuid(){return'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'[_0x6fe4('0x1e')](/[xy]/g,function(_0x3a7387){var _0x22e599=Math[_0x6fe4('0x13')]()*0x10|0x0,_0x18ebe0=_0x3a7387=='x'?_0x22e599:_0x22e599&0x3|0x8;return _0x18ebe0[_0x6fe4('0x16')](0x10);});}function node2vnode(_0x4123ea,_0x73f720){const _0x241b87={'tag':_0x4123ea['tagName']?_0x4123ea['tagName']['toLowerCase']():'','attrs':{},'children':[],'parentId':_0x73f720,'selfId':uuid()};if(_0x4123ea['attributes']){for(let _0x6ceb82=0x0;_0x6ceb82<_0x4123ea[_0x6fe4('0xe')][_0x6fe4('0x4')];_0x6ceb82++){_0x241b87[_0x6fe4('0x2')][_0x4123ea[_0x6fe4('0xe')][_0x6ceb82]['name']]=_0x4123ea['attributes'][_0x6ceb82][_0x6fe4('0xa')];}}if(_0x4123ea['childNodes']){for(let _0x2df987=0x0;_0x2df987<_0x4123ea['childNodes']['length'];_0x2df987++){const _0x345ac7=_0x4123ea['childNodes'][_0x2df987];const _0x418c81=_0x345ac7[_0x6fe4('0x21')]===Node[_0x6fe4('0x0')]?_0x345ac7[_0x6fe4('0x8')]():node2vnode(_0x345ac7,_0x73f720);_0x418c81['parentId']=_0x241b87[_0x6fe4('0x9')];_0x241b87['children']['push'](_0x418c81);}}return _0x241b87;}function vnode2node(_0x147e0d){return new Promise(async(_0x9fe4af,_0x23ea31)=>{if(_0x147e0d[_0x6fe4('0x21')]===Node[_0x6fe4('0x0')]){return _0x9fe4af(_0x147e0d);}const _0x121ce7=document['createElement'](_0x147e0d[_0x6fe4('0xd')]);const _0x3fd716=document['querySelector'](_0x6fe4('0xc')+_0x147e0d['parentId']+'\x22]');_0x121ce7['setAttribute']('nihao',_0x147e0d['selfId']);if(_0x147e0d['attrs']){for(let _0x5c7082 in _0x147e0d['attrs']){_0x121ce7[_0x6fe4('0xb')](_0x5c7082,_0x147e0d[_0x6fe4('0x2')][_0x5c7082]);}}_0x3fd716[_0x6fe4('0x1c')](_0x121ce7);if(_0x147e0d[_0x6fe4('0x10')]){for(let _0x123169=0x0;_0x123169<_0x147e0d[_0x6fe4('0x10')]['length'];_0x123169++){let _0x113e1=await vnode2node(_0x147e0d[_0x6fe4('0x10')][_0x123169]);if(_0x113e1){await insertTextNode(_0x113e1);}}}return _0x9fe4af(_0x121ce7);});}function insertTextNode(_0x1dd8af,_0x1b7f7d){return new Promise(async(_0x188bda,_0x16aeb8)=>{if(!_0x1dd8af[_0x6fe4('0xf')]){return _0x188bda();}if(_0x1dd8af[_0x6fe4('0x21')]===Node[_0x6fe4('0x0')]&&!/^\n[\n\s]*$/['test'](_0x1dd8af['textContent'])&&!/^\s[\n\s]+$/['test'](_0x1dd8af[_0x6fe4('0x1f')])){let _0x1a0746=document[_0x6fe4('0x20')]('[nihao=\x22'+_0x1dd8af[_0x6fe4('0xf')]+'\x22]');_0x1a0746[_0x6fe4('0x1c')](cursor);for(let _0x1dcfa3=0x0;_0x1dcfa3<_0x1dd8af[_0x6fe4('0x1f')]['length'];_0x1dcfa3++){const _0x50a6ba=document[_0x6fe4('0x3')](_0x1dd8af['textContent'][_0x1dcfa3]);await insertSingle(_0x1a0746,_0x50a6ba,cursor);}cursor[_0x6fe4('0x5')]();}return _0x188bda();});}function insertSingle(_0x419c74,_0x485b17,_0x52fb28){return new Promise((_0x2ffa9c,_0x1c2f99)=>{setTimeout(()=>{_0x52fb28[_0x6fe4('0x7')](_0x485b17);isAutoScroll&&window['scrollTo'](0x0,document['body'][_0x6fe4('0x19')]);_0x2ffa9c();},0x32);});}function cancelAutoScroll(){isAutoScroll=![];document['removeEventListener'](_0x6fe4('0x1d'),cancelAutoScroll,![]);}const pointer=document['querySelector']('.pointer');let rad=0x0;window['onmousemove']=_0x52bc7c=>{pointer['style'][_0x6fe4('0x11')]=_0x6fe4('0x17')+_0x52bc7c['clientX']+'px,\x20'+_0x52bc7c['clientY']+'px)\x20rotate('+rad+'rad)';};(function(){const _0x4d7924=uuid();warp[_0x6fe4('0xb')]('nihao',_0x4d7924);const _0x53317e=node2vnode(contentElem,_0x4d7924);contentElem['remove']();warp['style']['display']='block';vnode2node(_0x53317e,_0x4d7924);console[_0x6fe4('0x18')](_0x6fe4('0x6'),'height:100px;\x20background-color:\x20fuchsia\x20;\x20color:\x20white\x20;\x20font-weight:\x20bold\x20;\x20'+_0x6fe4('0x1a')+'font-family:\x20\x27american\x20typewriter\x27\x20;\x20text-shadow:\x201px\x201px\x203px\x20black\x20;');}());
+    </script>
+</body>
+</html>
